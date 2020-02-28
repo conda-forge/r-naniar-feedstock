@@ -1,4 +1,4 @@
-{% set version = '0.4.2' %}
+{% set version = "0.5.0" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,11 +10,11 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/naniar_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/naniar/naniar_{{ version }}.tar.gz
-  sha256: 95a671030aa948a7bdf086b4c1481504f7d26b034e2ee87d00b6474ed6e3c363
+  sha256: e9517b3d9fa3e0184bdbea1ccb2d0945416f886086f29f25b8fc9f968f3e1d58
 
 build:
-  merge_build_host: True  # [win]
-  number: 1001
+  merge_build_host: true  # [win]
+  number: 0
   noarch: generic
   rpaths:
     - lib/R/lib/
@@ -60,11 +60,10 @@ test:
 about:
   home: https://github.com/njtierney/naniar
   license: MIT
-  summary: 'Missing values are ubiquitous in data and need to be explored and handled in the
-    initial stages of analysis. ''naniar'' provides data structures  and functions that
-    facilitate the plotting of missing values and examination  of imputations. This
-    allows missing data dependencies to be explored with  minimal deviation from the
-    common work patterns of ''ggplot2'' and tidy data. '
+  license_file: LICENSE
+  summary: "Missing values are ubiquitous in data and need to be explored and handled in the initial stages of analysis. 'naniar' provides data structures  and functions\
+    \ that facilitate the plotting of missing values and examination  of imputations. This allows missing data dependencies to be explored with  minimal deviation\
+    \ from the common work patterns of 'ggplot2' and tidy data. "
   license_family: MIT
 
 extra:
