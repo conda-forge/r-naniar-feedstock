@@ -5,7 +5,7 @@ Home: https://github.com/njtierney/naniar
 
 Package license: MIT
 
-Feedstock license: BSD 3-Clause
+Feedstock license: BSD-3-Clause
 
 Summary: Missing values are ubiquitous in data and need to be explored and handled in the initial stages of analysis. 'naniar' provides data structures  and functions that facilitate the plotting of missing values and examination  of imputations. This allows missing data dependencies to be explored with  minimal deviation from the common work patterns of 'ggplot2' and tidy data. 
 
