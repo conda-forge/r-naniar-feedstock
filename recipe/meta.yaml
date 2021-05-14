@@ -1,4 +1,4 @@
-{% set version = "0.6.0" %}
+{% set version = "0.6.1" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,7 +10,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/naniar_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/naniar/naniar_{{ version }}.tar.gz
-  sha256: 9c93c64f51dd8c3002c930c276ef57651e91c8db12f885a03113753c604e7e54
+  sha256: d546ca15bf6c224f3103eb1441abef91d34feebb7320c2398d598f5d50177450
 
 build:
   merge_build_host: true  # [win]
@@ -23,6 +23,7 @@ build:
 requirements:
   build:
     - {{ posix }}zip               # [win]
+    - cross-r-base {{ r_base }}    # [build_platform != target_platform]
   host:
     - r-base
     - r-upsetr
@@ -31,9 +32,10 @@ requirements:
     - r-ggplot2
     - r-glue
     - r-magrittr
+    - r-norm
     - r-purrr
     - r-rlang
-    - r-tibble
+    - r-tibble >=2.0.0
     - r-tidyr
     - r-viridis
     - r-visdat
@@ -45,9 +47,10 @@ requirements:
     - r-ggplot2
     - r-glue
     - r-magrittr
+    - r-norm
     - r-purrr
     - r-rlang
-    - r-tibble
+    - r-tibble >=2.0.0
     - r-tidyr
     - r-viridis
     - r-visdat
@@ -60,10 +63,12 @@ test:
 about:
   home: https://github.com/njtierney/naniar
   license: MIT
-  license_file: LICENSE
   summary: "Missing values are ubiquitous in data and need to be explored and handled in the initial stages of analysis. 'naniar' provides data structures  and functions that facilitate the plotting of missing values and examination  of imputations. This allows missing data dependencies to be explored with  minimal deviation\
     \ from the common work patterns of 'ggplot2' and tidy data. "
   license_family: MIT
+  license_file:
+    - {{ environ["PREFIX"] }}/lib/R/share/licenses/MIT
+    - LICENSE
 
 extra:
   recipe-maintainers:
