@@ -1,4 +1,4 @@
-{% set version = "0.6.0" %}
+{% set version = "0.6.1" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,7 +10,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/naniar_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/naniar/naniar_{{ version }}.tar.gz
-  sha256: 9c93c64f51dd8c3002c930c276ef57651e91c8db12f885a03113753c604e7e54
+  sha256: d546ca15bf6c224f3103eb1441abef91d34feebb7320c2398d598f5d50177450
 
 build:
   merge_build_host: true  # [win]
