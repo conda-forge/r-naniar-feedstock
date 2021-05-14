@@ -23,6 +23,7 @@ build:
 requirements:
   build:
     - {{ posix }}zip               # [win]
+    - cross-r-base {{ r_base }}    # [build_platform != target_platform]
   host:
     - r-base
     - r-upsetr
@@ -31,9 +32,10 @@ requirements:
     - r-ggplot2
     - r-glue
     - r-magrittr
+    - r-norm
     - r-purrr
     - r-rlang
-    - r-tibble
+    - r-tibble >=2.0.0
     - r-tidyr
     - r-viridis
     - r-visdat
@@ -45,9 +47,10 @@ requirements:
     - r-ggplot2
     - r-glue
     - r-magrittr
+    - r-norm
     - r-purrr
     - r-rlang
-    - r-tibble
+    - r-tibble >=2.0.0
     - r-tidyr
     - r-viridis
     - r-visdat
@@ -60,10 +63,12 @@ test:
 about:
   home: https://github.com/njtierney/naniar
   license: MIT
-  license_file: LICENSE
   summary: "Missing values are ubiquitous in data and need to be explored and handled in the initial stages of analysis. 'naniar' provides data structures  and functions that facilitate the plotting of missing values and examination  of imputations. This allows missing data dependencies to be explored with  minimal deviation\
     \ from the common work patterns of 'ggplot2' and tidy data. "
   license_family: MIT
+  license_file:
+    - {{ environ["PREFIX"] }}/lib/R/share/licenses/MIT
+    - LICENSE
 
 extra:
   recipe-maintainers:
